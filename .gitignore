@@ -1,0 +1,19 @@
+# Andaime de IA / planejamento — nunca sobe para a main
+.context/
+.specify/
+docs/
+specs/
+
+# Hugo
+/public/
+/resources/
+.hugo_build.lock
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Segredos locais — nunca sobe; use .env.example como referência
+.env
+.env.local
+.env.*.local

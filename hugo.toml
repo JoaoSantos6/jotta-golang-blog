@@ -1,0 +1,41 @@
+baseURL = 'https://JoaoSantos6.github.io/jotta-golang-blog/'
+locale = 'pt-br'
+title = 'Blog de Estudos em Go'
+theme = 'PaperMod'
+
+[taxonomies]
+  tag = 'tags'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = 'github'
+
+[params]
+  env = 'production'
+  description = 'Anotações, exercícios e projetos pequenos enquanto aprendo Go.'
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+
+[[menu.main]]
+  identifier = 'posts'
+  name = 'Posts'
+  url = '/posts/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'tags'
+  name = 'Tags'
+  url = '/tags/'
+  weight = 20
+
+[[menu.main]]
+  identifier = 'about'
+  name = 'Sobre'
+  url = '/about/'
+  weight = 30
