@@ -23,7 +23,7 @@ theme = 'hugo-theme-stack'
   mainSections = ['posts']
 
   [params.sidebar]
-    avatar = 'img/avatar.svg'
+    avatar = 'img/avatar.jpg'
     subtitle = 'Anotações, exercícios e projetos pequenos enquanto aprendo Go.'
     emoji = '🐹'
 
