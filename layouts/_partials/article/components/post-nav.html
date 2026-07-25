@@ -1,0 +1,29 @@
+{{/*
+    Hugo's InSection prev/next are relative to publish date, not slice
+    position: .NextInSection resolves to the newer neighbor, .PrevInSection
+    to the older one — the opposite of what the method names suggest.
+*/}}
+{{ $older := .PrevInSection }}
+{{ $newer := .NextInSection }}
+{{ if or $older $newer }}
+<nav class="post-nav" aria-label="Navegação entre posts">
+    {{ if $older }}
+    <a class="post-nav-item post-nav-prev" href="{{ $older.RelPermalink }}">
+        {{ partial "helper/icon" "chevron-left" }}
+        <span class="post-nav-info">
+            <span class="post-nav-label">Post anterior</span>
+            <span class="post-nav-title">{{ $older.Title }}</span>
+        </span>
+    </a>
+    {{ end }}
+    {{ if $newer }}
+    <a class="post-nav-item post-nav-next" href="{{ $newer.RelPermalink }}">
+        <span class="post-nav-info">
+            <span class="post-nav-label">Próximo post</span>
+            <span class="post-nav-title">{{ $newer.Title }}</span>
+        </span>
+        {{ partial "helper/icon" "chevron-right" }}
+    </a>
+    {{ end }}
+</nav>
+{{ end }}

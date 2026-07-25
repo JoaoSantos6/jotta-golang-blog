@@ -8,6 +8,7 @@ specs/
 /public/
 /resources/
 .hugo_build.lock
+/assets/jsconfig.json
 
 # Sistema operacional
 .DS_Store

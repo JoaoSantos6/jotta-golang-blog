@@ -4,6 +4,7 @@ date: 2026-07-09
 tags: ["concorrência", "goroutines"]
 draft: false
 summary: "O que aprendi estudando concorrência em Go essa semana: goroutines, o runtime scheduler e as primeiras armadilhas."
+description: "O que aprendi estudando concorrência em Go essa semana: goroutines, o runtime scheduler e as primeiras armadilhas."
 ---
 
 Comecei a semana tentando entender por que `go func() {...}()` parece mágica

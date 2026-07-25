@@ -4,6 +4,7 @@ date: 2026-07-02
 tags: ["fundamentos"]
 draft: false
 summary: "Anotações da primeira semana estudando os tipos compostos de Go — structs, embedding e como interfaces são satisfeitas implicitamente."
+description: "Anotações da primeira semana estudando os tipos compostos de Go — structs, embedding e como interfaces são satisfeitas implicitamente."
 ---
 
 Vindo de linguagens com herança clássica, o modelo de composição de Go foi a

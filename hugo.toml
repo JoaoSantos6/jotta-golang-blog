@@ -1,10 +1,16 @@
 baseURL = 'https://JoaoSantos6.github.io/jotta-golang-blog/'
 locale = 'pt-br'
 title = 'Blog de Estudos em Go'
-theme = 'PaperMod'
+theme = 'hugo-theme-stack'
+
+[pagination]
+  pagerSize = 10
 
 [taxonomies]
   tag = 'tags'
+
+[permalinks]
+  page = '/:slug/'
 
 [markup]
   [markup.highlight]
@@ -14,13 +20,29 @@ theme = 'PaperMod'
 [params]
   env = 'production'
   description = 'Anotações, exercícios e projetos pequenos enquanto aprendo Go.'
-  ShowReadingTime = true
-  ShowShareButtons = false
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowRssButtonInSectionTermList = true
-  ShowToc = true
+  mainSections = ['posts']
+
+  [params.sidebar]
+    avatar = 'img/avatar.svg'
+    subtitle = 'Anotações, exercícios e projetos pequenos enquanto aprendo Go.'
+    emoji = '🐹'
+
+  [params.article]
+    readingTime = true
+
+  [params.comments]
+    enabled = false
+
+  [params.colorScheme]
+    toggle = true
+    default = 'auto'
+
+  [params.widgets]
+    homepage = [
+      { type = 'search' },
+      { type = 'archives', params = { limit = 5 } },
+      { type = 'tag-cloud', params = { limit = 10 } },
+    ]
 
 [[menu.main]]
   identifier = 'posts'
@@ -39,3 +61,10 @@ theme = 'PaperMod'
   name = 'Sobre'
   url = '/about/'
   weight = 30
+
+[[menu.social]]
+  identifier = 'github'
+  name = 'GitHub'
+  url = 'https://github.com/JoaoSantos6'
+  [menu.social.params]
+    icon = 'brand-github'

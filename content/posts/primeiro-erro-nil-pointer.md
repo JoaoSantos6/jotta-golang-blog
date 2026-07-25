@@ -4,6 +4,7 @@ date: 2026-06-25
 tags: ["erros-e-aprendizados", "fundamentos"]
 draft: false
 summary: "Registrando o primeiro panic real que encontrei: um nil pointer dereference causado por uma interface que parecia inicializada, mas não estava."
+description: "Registrando o primeiro panic real que encontrei: um nil pointer dereference causado por uma interface que parecia inicializada, mas não estava."
 ---
 
 Depois de uma semana estudando a sintaxe básica, tentei escrever meu primeiro

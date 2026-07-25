@@ -9,7 +9,7 @@ A ideia é simples: escrever sobre o que estou aprendendo enquanto ainda estou a
 ## Stack
 
 - [Hugo](https://gohugo.io/) — gerador de site estático
-- [PaperMod](https://github.com/adityatelange/hugo-PaperMod) — tema
+- [Hugo Stack](https://github.com/CaiJimmy/hugo-theme-stack) — tema
 - Markdown para o conteúdo dos posts
 - GitHub Actions — build e deploy automáticos
 - GitHub Pages — hospedagem
