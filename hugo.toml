@@ -43,6 +43,10 @@ theme = 'hugo-theme-stack'
       { type = 'archives', params = { limit = 5 } },
       { type = 'tag-cloud', params = { limit = 10 } },
     ]
+    page = [
+      { type = 'archives', params = { limit = 5 } },
+      { type = 'tag-cloud', params = { limit = 10 } },
+    ]
 
 [[menu.main]]
   identifier = 'posts'
