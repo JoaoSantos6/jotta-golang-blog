@@ -13,12 +13,12 @@ description: "A história da sonda Mars Climate Orbiter, perdida por causa de um
 *Imagem: [O Erro de $ 125 Milhões – Missão Mars Climate Orbiter, GPET Física](https://share.google/AjyCgqYn2lhYF8h6Y)*
 
 Setembro de 1999. Depois de nove meses de viagem, uma sonda de **125
-milhões de dólares** chega em Marte — e some. Sem explosão. Sem meteoro.
+milhões de dólares** chega em Marte, e some. Sem explosão. Sem meteoro.
 Sem falha de motor. O software funcionava perfeitamente.
 
 O culpado: um número que trocou de mãos entre dois times sem ninguém dizer
 **em que unidade** ele estava. Um lado falava em libras-força. O outro
-ouvia newtons. A diferença — um fator de 4,45 — foi se acumulando em
+ouvia newtons. A diferença (um fator de 4,45) foi se acumulando em
 silêncio até a sonda mergulhar na atmosfera errada.
 
 > O número estava certo. O que faltou foi dizer **o que aquele número
@@ -34,14 +34,14 @@ confusão. Vamos por partes.
 
 ### Primeiro: o que é "tipo"?
 
-Todo valor no seu programa tem um **tipo** — uma etiqueta que diz "isto é um
-número inteiro", "isto é um texto", "isto é um valor verdadeiro/falso". Em
+Todo valor no seu programa tem um **tipo** (uma etiqueta que diz "isto é um
+número inteiro", "isto é um texto", "isto é um valor verdadeiro/falso"). Em
 Go, os tipos básicos incluem:
 
-- `int` — número inteiro (ex: `42`)
-- `float64` — número com casa decimal (ex: `3.14`)
-- `string` — texto (ex: `"olá"`)
-- `bool` — verdadeiro ou falso (`true` / `false`)
+- `int` (número inteiro, ex: `42`)
+- `float64` (número com casa decimal, ex: `3.14`)
+- `string` (texto, ex: `"olá"`)
+- `bool` (verdadeiro ou falso, `true` / `false`)
 
 Até aqui, nada de diferente de outras linguagens. A mágica vem agora.
 
@@ -55,7 +55,7 @@ type Celsius float64
 type Fahrenheit float64
 ```
 
-Lendo em voz alta: "*Celsius* é um novo tipo, feito em cima de `float64`" —
+Lendo em voz alta: "*Celsius* é um novo tipo, feito em cima de `float64`",
 e a mesma coisa para *Fahrenheit*.
 
 Por baixo dos panos, os dois **são** `float64`: guardam um número com casa
@@ -96,8 +96,8 @@ programador, resolvida em dois minutos.
 
 Você vai esbarrar nesse padrão logo nos primeiros programas. O exemplo mais
 comum é o tipo `time.Duration`, que a biblioteca padrão usa para
-representar intervalos de tempo. Por baixo, ele é só um número inteiro —
-mas com nome próprio. Por isso você escreve assim:
+representar intervalos de tempo. Por baixo, ele é só um número inteiro (mas
+com nome próprio). Por isso você escreve assim:
 
 ```go
 time.Sleep(5 * time.Second) // dorme por 5 segundos, bem claro
@@ -116,12 +116,12 @@ despenca.
 
 ---
 
-## Resumo pra levar pra casa
+## Dito isso...
 
 - Em Go, `type NomeNovo TipoAntigo` cria um tipo **novo e distinto**, mesmo
   que por baixo os dois sejam iguais.
-- O compilador **não deixa** você misturar tipos diferentes por engano — o
-  erro aparece antes de o programa rodar.
+- O compilador **não deixa** você misturar tipos diferentes por engano (o
+  erro aparece antes de o programa rodar).
 - Isso transforma bugs de significado (como confundir unidades) em erros de
   compilação bobos e fáceis de corrigir.
 - A própria biblioteca padrão usa isso o tempo todo, como em
