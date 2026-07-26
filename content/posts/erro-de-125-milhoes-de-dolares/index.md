@@ -10,6 +10,8 @@ description: "A história da sonda Mars Climate Orbiter, perdida por causa de um
 
 ## Uma sonda, dois times e uma unidade de medida
 
+*Imagem: [O Erro de $ 125 Milhões – Missão Mars Climate Orbiter, GPET Física](https://share.google/AjyCgqYn2lhYF8h6Y)*
+
 Setembro de 1999. Depois de nove meses de viagem, uma sonda de **125
 milhões de dólares** chega em Marte — e some. Sem explosão. Sem meteoro.
 Sem falha de motor. O software funcionava perfeitamente.
