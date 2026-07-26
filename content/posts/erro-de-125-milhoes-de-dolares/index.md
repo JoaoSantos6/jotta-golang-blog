@@ -3,33 +3,21 @@ title: "Tipagem Nominal: O Erro de 125 Milhões de Dólares que o Go Te Ajuda a 
 date: 2026-07-26
 tags: ["fundamentos", "tipos"]
 draft: false
+image: "cover.jpg"
 summary: "A história da sonda Mars Climate Orbiter, perdida por causa de uma confusão de unidades, e como o sistema de tipos de Go transforma esse tipo de bug em erro de compilação."
 description: "A história da sonda Mars Climate Orbiter, perdida por causa de uma confusão de unidades, e como o sistema de tipos de Go transforma esse tipo de bug em erro de compilação."
 ---
 
 ## Uma sonda, dois times e uma unidade de medida
 
-Em dezembro de 1998, a NASA lançou a *Mars Climate Orbiter*, uma sonda de 125
-milhões de dólares, numa viagem de nove meses até Marte. Chegando lá, em
-setembro de 1999, ela simplesmente sumiu.
+Setembro de 1999. Depois de nove meses de viagem, uma sonda de **125
+milhões de dólares** chega em Marte — e some. Sem explosão. Sem meteoro.
+Sem falha de motor. O software funcionava perfeitamente.
 
-Não foi explosão, não foi falha de motor, não foi meteoro. A sonda
-funcionava perfeitamente. O problema estava no software — e era o tipo de
-bug que qualquer um de nós já cometeu.
-
-Um time (a Lockheed Martin) escreveu um código que devolvia a força dos
-propulsores em **libras-força por segundo**, uma unidade do sistema imperial
-americano. O outro time (a equipe de navegação da NASA) tinha um código que
-lia esse número esperando **newtons por segundo**, do sistema métrico. Os
-dois lados trocavam apenas o número, sem nunca dizer qual era a unidade.
-
-Uma libra-força vale cerca de 4,45 newtons. Ou seja: cada valor que passava
-de um sistema para o outro estava errado por um fator de 4,45 — mas ninguém
-percebeu, porque na tela era só um número que parecia razoável. Depois de
-nove meses acumulando pequenos desvios de trajetória, a sonda entrou na
-atmosfera de Marte na altitude errada e se desintegrou.
-
-Guarde essa frase, porque é o coração deste post:
+O culpado: um número que trocou de mãos entre dois times sem ninguém dizer
+**em que unidade** ele estava. Um lado falava em libras-força. O outro
+ouvia newtons. A diferença — um fator de 4,45 — foi se acumulando em
+silêncio até a sonda mergulhar na atmosfera errada.
 
 > O número estava certo. O que faltou foi dizer **o que aquele número
 > significava**.
@@ -102,21 +90,6 @@ programador, resolvida em dois minutos.
 
 ---
 
-## Um paralelo pra fixar
-
-Imagine duas garrafas idênticas em cima da bancada. Uma tem água, a outra
-tem álcool. No olho, são a mesma coisa: mesmo formato, mesmo líquido
-transparente.
-
-Se elas não têm rótulo, uma hora alguém vai beber da errada.
-
-Criar um tipo em Go é **colar o rótulo na garrafa**. O líquido continua
-parecido (os dois são `float64`), mas agora existe alguém — o compilador —
-conferindo o rótulo toda vez e te impedindo de trocar uma pela outra por
-engano.
-
----
-
 ## Isso não é teoria: o próprio Go usa esse truque
 
 Você vai esbarrar nesse padrão logo nos primeiros programas. O exemplo mais
@@ -141,33 +114,6 @@ despenca.
 
 ---
 
-## Bônus: seu tipo pode ganhar comportamento
-
-Como em Go você criou um tipo de verdade (e não só um apelido), pode até
-"ensinar" ele a fazer coisas. Por exemplo, ensinar `Celsius` a se converter
-para `Fahrenheit`:
-
-```go
-func (c Celsius) ParaFahrenheit() Fahrenheit {
-    return Fahrenheit(c*9/5 + 32)
-}
-```
-
-Agora a conversão mora dentro do próprio tipo, no lugar certo:
-
-```go
-temp := Celsius(100)
-fmt.Println(temp.ParaFahrenheit()) // 212
-```
-
-Repare que a conversão só acontece de propósito, com aquele
-`Fahrenheit(...)` explícito. Você **pode** converter quando quiser — só não
-vai fazer isso sem perceber. E essa diferença entre "por acidente" e "de
-propósito" é tudo o que separa uma sonda em órbita de uma sonda virando
-poeira em Marte.
-
----
-
 ## Resumo pra levar pra casa
 
 - Em Go, `type NomeNovo TipoAntigo` cria um tipo **novo e distinto**, mesmo
@@ -178,8 +124,6 @@ poeira em Marte.
   compilação bobos e fáceis de corrigir.
 - A própria biblioteca padrão usa isso o tempo todo, como em
   `time.Duration`.
-- Bônus: seus tipos podem ter comportamento próprio, deixando cada regra no
-  lugar certo.
 
 A filosofia por trás de tudo isso, e que vale carregar no resto dos seus
 estudos de Go: **o compilador não é seu inimigo, é seu revisor**. Cada
