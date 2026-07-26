@@ -64,8 +64,8 @@ decimal, do mesmo jeitinho. Mas para o compilador do Go, eles agora são
 
 ### Terceiro: Go se recusa a misturar os dois
 
-Veja o que acontece se você tentar tratar uma temperatura em Celsius como
-se fosse Fahrenheit:
+Vamos ver o que acontece se tentarmos tratar uma temperatura em Celsius
+como se fosse Fahrenheit:
 
 ```go
 var temp Celsius = 100
@@ -79,7 +79,7 @@ mensagem parecida com:
 cannot use temp (variable of type Celsius) as Fahrenheit value in variable declaration
 ```
 
-Pare um segundo e repare no que aconteceu. Os dois valores são,
+Vamos parar um segundo e reparar no que aconteceu. Os dois valores são,
 tecnicamente, `float64`. Poderiam se somar, se comparar, se misturar sem
 reclamação nenhuma. Mas porque você deu **nomes** a eles, o Go entende que
 são grandezas diferentes e **se recusa a deixar você confundi-las**.
