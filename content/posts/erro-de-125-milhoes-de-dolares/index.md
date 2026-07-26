@@ -1,5 +1,5 @@
 ---
-title: "Tipagem Nominal: O Erro de 125 Milhões de Dólares que o Go Te Ajuda a Evitar"
+title: "Tipagem Nominal: O Erro de 125 Milhões de Dólares que o Go Nos Ajuda a Evitar"
 date: 2026-07-26
 tags: ["fundamentos", "tipos"]
 draft: false
@@ -28,13 +28,13 @@ silêncio até a sonda mergulhar na atmosfera errada.
 
 ## O que isso tem a ver com Go?
 
-Tudo. Porque uma das primeiras coisas legais que você descobre estudando Go
+Tudo. Porque uma das primeiras coisas legais que descobrimos estudando Go
 é que a linguagem tem um jeito simples de resolver exatamente esse tipo de
 confusão. Vamos por partes.
 
 ### Primeiro: o que é "tipo"?
 
-Todo valor no seu programa tem um **tipo** (uma etiqueta que diz "isto é um
+Todo valor no nosso programa tem um **tipo** (uma etiqueta que diz "isto é um
 número inteiro", "isto é um texto", "isto é um valor verdadeiro/falso"). Em
 Go, os tipos básicos incluem:
 
@@ -45,9 +45,9 @@ Go, os tipos básicos incluem:
 
 Até aqui, nada de diferente de outras linguagens. A mágica vem agora.
 
-### Segundo: em Go, você pode criar seus próprios tipos
+### Segundo: em Go, podemos criar nossos próprios tipos
 
-Com uma única palavra, `type`, você inventa um tipo novo baseado em um que
+Com uma única palavra, `type`, inventamos um tipo novo baseado em um que
 já existe:
 
 ```go
@@ -72,7 +72,7 @@ var temp Celsius = 100
 var f Fahrenheit = temp // ERRO: não compila!
 ```
 
-O programa nem chega a rodar. O compilador te barra na hora com uma
+O programa nem chega a rodar. O compilador nos barra na hora com uma
 mensagem parecida com:
 
 ```
@@ -81,8 +81,8 @@ cannot use temp (variable of type Celsius) as Fahrenheit value in variable decla
 
 Vamos parar um segundo e reparar no que aconteceu. Os dois valores são,
 tecnicamente, `float64`. Poderiam se somar, se comparar, se misturar sem
-reclamação nenhuma. Mas porque você deu **nomes** a eles, o Go entende que
-são grandezas diferentes e **se recusa a deixar você confundi-las**.
+reclamação nenhuma. Mas porque demos **nomes** a eles, o Go entende que
+são grandezas diferentes e **não deixa a gente confundir os dois**.
 
 É literalmente o bug da NASA sendo pego antes de existir. Se o software da
 sonda fosse escrito assim, com um tipo `LibraForca` e um tipo `Newton`, a
@@ -94,10 +94,10 @@ programador, resolvida em dois minutos.
 
 ## Isso não é teoria: o próprio Go usa esse truque
 
-Você vai esbarrar nesse padrão logo nos primeiros programas. O exemplo mais
+Vamos esbarrar nesse padrão logo nos primeiros programas. O exemplo mais
 comum é o tipo `time.Duration`, que a biblioteca padrão usa para
 representar intervalos de tempo. Por baixo, ele é só um número inteiro (mas
-com nome próprio). Por isso você escreve assim:
+com nome próprio). Por isso escrevemos assim:
 
 ```go
 time.Sleep(5 * time.Second) // dorme por 5 segundos, bem claro
@@ -111,7 +111,7 @@ time.Sleep(5) // isso dorme por 5 NANOSSEGUNDOS!
 
 A unidade está embutida no tipo. O `5 * time.Second` carrega o significado
 "segundos" junto com o número, exatamente o que faltou na *Mars Climate
-Orbiter*. O código explica a si mesmo, e a chance de você errar a unidade
+Orbiter*. O código explica a si mesmo, e a chance de errarmos a unidade
 despenca.
 
 ---
@@ -120,15 +120,15 @@ despenca.
 
 - Em Go, `type NomeNovo TipoAntigo` cria um tipo **novo e distinto**, mesmo
   que por baixo os dois sejam iguais.
-- O compilador **não deixa** você misturar tipos diferentes por engano (o
+- O compilador **não nos deixa** misturar tipos diferentes por engano (o
   erro aparece antes de o programa rodar).
 - Isso transforma bugs de significado (como confundir unidades) em erros de
   compilação bobos e fáceis de corrigir.
 - A própria biblioteca padrão usa isso o tempo todo, como em
   `time.Duration`.
 
-A filosofia por trás de tudo isso, e que vale carregar no resto dos seus
-estudos de Go: **o compilador não é seu inimigo, é seu revisor**. Cada
-"chatice" dele é um problema a menos esperando por você em produção.
+A filosofia por trás de tudo isso, e que vale carregar no resto dos nossos
+estudos de Go: **o compilador não é nosso inimigo, é nosso revisor**. Cada
+"chatice" dele é um problema a menos esperando por nós em produção.
 
-A NASA aprendeu do jeito caro. Com Go, você aprende de graça.
+A NASA aprendeu do jeito caro. Com Go, aprendemos de graça.
