@@ -1,5 +1,5 @@
 ---
-title: "O Erro de 125 Milhões de Dólares que o Go Te Ajuda a Evitar"
+title: "Tipagem Nominal: O Erro de 125 Milhões de Dólares que o Go Te Ajuda a Evitar"
 date: 2026-07-26
 tags: ["fundamentos", "tipos"]
 draft: false
